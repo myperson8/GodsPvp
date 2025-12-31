@@ -2,8 +2,8 @@
 	"schemaVersion": 1,
 	"id": "godspvp",
 	"version": "${version}",
-	"name": "Gods PVP",
-	"description": "Gods PVP is a simple client side mod that helps players in pvp and other stuff. DO NOT TAKE IT AS A HACK!",
+	"name": "GodsPVP",
+	"description": "GodsPVP — a client-side quality-of-life mod for Minecraft 1.21.4. Provides HUD helpers, a configurable minimap, inventory and chat utilities, and other non-intrusive client features. All features are client-side only and do not alter server behavior.",
 	"authors": [
 		"myperson8"
 	],

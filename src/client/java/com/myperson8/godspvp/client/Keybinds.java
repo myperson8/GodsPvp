@@ -11,6 +11,7 @@ import org.lwjgl.glfw.GLFW;
 public class Keybinds {
     public static KeyBinding OPEN_HOTBAR_WHEEL;
     public static KeyBinding PIN_CHAT_MESSAGE;
+    public static KeyBinding MINIMAP_TOGGLE;
 
     public static void register() {
         OPEN_HOTBAR_WHEEL = KeyBindingHelper.registerKeyBinding(new KeyBinding(

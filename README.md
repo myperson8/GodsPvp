@@ -1,47 +1,41 @@
-# GodsPvp — Client-side QoL Mod (Fabric, Minecraft 1.21.4)
+# GodsPVP
 
-This mod provides client-side quality-of-life HUD and utility features for Minecraft (Fabric, 1.21.4). All features are client-only and do not modify server behavior or send custom packets.
+GodsPVP is a client-side quality-of-life mod for Minecraft 1.21.4 (Fabric). It provides unobtrusive HUD utilities and tooling to improve awareness and building workflows without affecting server state or gameplay rules.
 
-## Quick Tutorial
+Key features
 
-1. Build the mod
+- Clean HUD widgets that avoid overlapping with chat.
+- Configurable minimap (small circular map by default, press `M` to toggle a larger draggable map).
+- Block reach indicator, context-aware crosshair label, low-durability alerts, and a radial hotbar selector.
+
+Installation
+
+1. Build the mod:
 
 ```bash
 ./gradlew build
 ```
 
-The generated jar will be in `build/libs/`.
+2. Install:
 
-2. Install (single-player or client mods folder)
+- Place the generated jar from `build/libs/` into your `%minecraft%/mods` folder.
+- Launch Minecraft with Fabric Loader and Fabric API (targeting 1.21.4).
 
-- Drop the generated jar into your `%minecraft%/mods` folder (or `~/.minecraft/mods`).
-- Ensure you run Minecraft with Fabric Loader and Fabric API for 1.21.4.
+Usage
 
-3. Run in development (IDE)
+- Toggle minimap size: press `M`. The large map is draggable — click and drag inside the large map to reposition it.
+- Open hotbar radial wheel: press and hold `R`.
 
-- Use the provided Gradle run configurations or run the `runClient` Gradle task from your IDE.
+Behavior and safety
 
-4. Default keybinds
+- All data (waypoints, settings) is stored locally. The mod never modifies server-side behavior nor automates actions.
+- HUD elements detect the chat area and automatically shift to remain visible when chat is expanded.
 
-- Open Hotbar Radial Wheel: `R` (hold) — shows a simple radial selector for hotbar slots.
-- Pin chat message: `P` — (placeholder) key registered; future feature will allow right-click pinning.
+Customization & development
 
-5. Included starter features
+- Source modules are located under `src/client/java/com/myperson8/godspvp/client/modules/`.
+- Implement additional modules by following the `Module` interface and register them in `ModuleManager`.
 
-- Block Reach Indicator — shows reach distance on HUD (green when within reach, red when too far).
-- Hotbar Radial Wheel — hold `R` to preview a radial selection of hotbar slots.
-- Durability Alerts — plays a sound when main-hand item durability drops below 15%.
-- Crosshair Modes — HUD indicator that changes based on held item (melee, ranged, build).
+More information
 
-6. Where to extend
-
-- The client modules are in `src/client/java/com/myperson8/godspvp/client/modules/`.
-- Add features by implementing the `Module` interface and registering in `ModuleManager`.
-
-7. Privacy & safety
-
-- All bookmarks, waypoints, and settings are stored locally. The mod does not perform automated gameplay actions or provide any server-side advantages.
-
----
-
-For developer notes and advanced features, see `CLIENT_FEATURES_README.md`.
+See `CLIENT_FEATURES_README.md` for notes on the implemented starters and development tips.

@@ -6,6 +6,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
+import com.myperson8.godspvp.client.ChatUtils;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
@@ -36,6 +37,11 @@ public class CrosshairModes implements Module {
 
         int x = client.getWindow().getScaledWidth() / 2 - 30;
         int y = client.getWindow().getScaledHeight() / 2 + 10;
+        int chatH = ChatUtils.getChatHeight(client, tr);
+        int screenH = client.getWindow().getScaledHeight();
+        if (y + tr.fontHeight > screenH - chatH) {
+            y = screenH - chatH - tr.fontHeight - 4;
+        }
         context.drawTextWithShadow(tr, Text.literal("Crosshair: " + mode), x, y, color);
     }
 }

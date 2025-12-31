@@ -4,6 +4,7 @@ import com.myperson8.godspvp.client.modules.BlockReachIndicator;
 import com.myperson8.godspvp.client.modules.CrosshairModes;
 import com.myperson8.godspvp.client.modules.DurabilityAlerts;
 import com.myperson8.godspvp.client.modules.HotbarRadialWheel;
+import com.myperson8.godspvp.client.modules.MinimapModule;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -23,6 +24,7 @@ public class ModuleManager {
         register(new HotbarRadialWheel());
         register(new DurabilityAlerts());
         register(new CrosshairModes());
+        register(new MinimapModule());
 
         // initialize modules
         MODULES.forEach(Module::init);

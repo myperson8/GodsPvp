@@ -7,6 +7,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
+import com.myperson8.godspvp.client.ChatUtils;
 import net.minecraft.util.hit.HitResult;
 
 @Environment(EnvType.CLIENT)
@@ -35,6 +36,12 @@ public class BlockReachIndicator implements Module {
             String s = String.format("Reach: %.2f", dist);
             int x = client.getWindow().getScaledWidth() / 2 + 10;
             int y = client.getWindow().getScaledHeight() / 2 - 8;
+            // avoid chat overlap: if chat area overlaps our HUD position, shift upward
+            int chatH = ChatUtils.getChatHeight(client, tr);
+            int screenH = client.getWindow().getScaledHeight();
+            if (y + tr.fontHeight > screenH - chatH) {
+                y = screenH - chatH - tr.fontHeight - 4;
+            }
             context.drawTextWithShadow(tr, Text.literal(s), x, y, color);
         }
     }
