@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "godspvp",
+	"version": "${version}",
+	"name": "Gods PVP",
+	"description": "Gods PVP is a simple client side mod that helps players in pvp and other stuff. DO NOT TAKE IT AS A HACK!",
+	"authors": [
+		"myperson8"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/myperson8/GodsPvp"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/godspvp/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.myperson8.godspvp.GodsPVP"
+		],
+		"client": [
+			"com.myperson8.godspvp.GodsPVPClient"
+		],
+		"fabric-datagen": [
+			"com.myperson8.godspvp.GodsPVPDataGenerator"
+		]
+	},
+	"mixins": [
+		"godspvp.mixins.json",
+		{
+			"config": "godspvp.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
